@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
-class RegisterController extends Controller
+class RegisterControll extends Controller
 {
     //
     public function store(Request $request) {
@@ -33,6 +33,7 @@ class RegisterController extends Controller
 
         return response()->json([
             'msg' => 'Account successfully created'
+            
         ]);
     }
 }

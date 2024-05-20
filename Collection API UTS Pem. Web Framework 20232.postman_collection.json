@@ -1,0 +1,482 @@
+{
+	"info": {
+		"_postman_id": "a4e1bc1d-0769-4bb6-a97d-5e3141f3a34c",
+		"name": "Collection API UTS Pem. Web Framework 20232",
+		"description": "Collection ini digunakan mahasiswa untuk testing API yang akan mahasiswa buat untuk pengerjaan soal UTS (**jangan di otak-atik field body nya**).\n\nKami sebagai dosen pengampu matakuliah akan menggunakan collection API ini untuk memudahkan proses penilaian, sehingga mahasiswa bisa mengetahui berapa nilai UTS yang didapat hanya dengan melakukan pemeriksaan kesesuaian antara API yang dibuat dengan request-response dari collection API ini. Untuk memudahkan penggunaaan collection API serta **SYARAT NILAI** ini ikuti aturan-aturan berikut:\n\n1. **WAJIB HOSTING**, berbayar atau tidak dipersilahkan asalkan pada saat penilaian API dapat berjalan dengan baik. Kegagalan request-response API karena permasalahan hosting diluar tanggung jawab dosen pengampu dan sudah dipastikan dapat nilai 0.\n    \n2. **WAJIB DOMAIN**, boleh menggunakan sub-domain sehingga bisa membeli domain secara kolektif.\n    \n3. Pada collection terdapat beberapa simbol seperti berikut, **yang mana simbol ini harus mahasiswa ganti sesuai dengan API yang mahasiswa buat**:\n    1. **{{baseUrl}}** : nama domain boleh menggunakan http atau https\n        \n    2. **{{jwtToken}}** : token JWT untuk otentikasi dan otorisasi (segmentasi role admin dan user)\n        \n    3. **{{id}}** : id untuk melakukan edit ataupun delete, id: 1, 2, 3, dst\n        \n    4. \"isi kan bla bla bla\" : isi kan inputan sesuai dengan seharusnya (boleh dimodifikasi inputannya untuk cek validasi inputan)\n        \n4. **WAJIB GUNAKAN VALIDASI INPUTAN**\n    \n5. **WAJIB LARAVEL**\n    \n\n**Apa yang harus saya penuhi untuk dapat nilai UTS?**\n\n1. Pengumpulan dan presensi wajib di BOC (ketentuan fakultas tidak bisa kompromi)\n    \n2. Tidak melanggar aturan-aturan diatas\n    \n3. Pengumpulan UTS berupa **link source code project UTS di github/gitlab/bitbucket (public bukan hasil kompresi seperti zip/rar), dan alamat domain**\n    \n4. Melebihi batas waktu pengumpulan dianggap tidak mengikuti UTS\n    \n\n> Merugilah dia yang mencontek dan/atau memberi contekan kepada orang lain. Karena sesungguhnya dia telah membodohi dirinya sendiri serta orang lain.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34977304"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "read",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjE5MDU2MiwiZXhwIjoxNzE2MTk3NzYyfQ.hEXM4rm4aaNlbJfGfTCrz4R_I3LRW_hY7QEuoC2PiCs"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/product",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product"
+							]
+						},
+						"description": "melihat semua kategori"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjIwOTgwMywiZXhwIjoxNzE2MjE3MDAzfQ.dw5DL18m5zfu7TjEah6PsAlSi6rKnsrfnRHCK8yBfLw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"drink\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "membuat kategori"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjE5MDU2MiwiZXhwIjoxNzE2MTk3NzYyfQ.hEXM4rm4aaNlbJfGfTCrz4R_I3LRW_hY7QEuoC2PiCs"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "snack",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "menyunting kategori sesuai id yang dipilih"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjE5MDU2MiwiZXhwIjoxNzE2MTk3NzYyfQ.hEXM4rm4aaNlbJfGfTCrz4R_I3LRW_hY7QEuoC2PiCs"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"4"
+							]
+						},
+						"description": "menghapus kategori sesuai dengan id yang dipilih"
+					},
+					"response": []
+				}
+			],
+			"description": "kelola kategori produk"
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjE5MDU2MiwiZXhwIjoxNzE2MTk3NzYyfQ.hEXM4rm4aaNlbJfGfTCrz4R_I3LRW_hY7QEuoC2PiCs"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/product",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product"
+							]
+						},
+						"description": "melihat semua data produk"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzE2MTkwMjU3LCJleHAiOjE3MTYxOTc0NTd9.x-6uG0375b4EU3NCQzs9F7z6sQFj-R9KJxe9NeiVegI"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Snickers",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lu rese kalo lapar",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "snack",
+									"type": "text"
+								},
+								{
+									"key": "expired_at",
+									"value": "2027-12-1",
+									"type": "text"
+								},
+								{
+									"key": "modified_by",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Downloads/ac4e7a4f341e7281b0f6f274f9ec3905.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/product",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product"
+							]
+						},
+						"description": "membuat data produk baru"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjIwOTgwMywiZXhwIjoxNzE2MjE3MDAzfQ.dw5DL18m5zfu7TjEah6PsAlSi6rKnsrfnRHCK8yBfLw"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Taro",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Taro dimana",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "7000",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "snack",
+									"type": "text"
+								},
+								{
+									"key": "expired_at",
+									"value": "2025-12-01",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "upload gambar produk",
+									"type": "file",
+									"src": "postman-cloud:///1ef137bc-fd4c-4e30-9559-37443c7afe0d"
+								},
+								{
+									"key": "modified_by",
+									"value": "admin@email.com",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/product/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						},
+						"description": "menyunting data produk sesuai dengan id yang dipilih"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczEyMzRAZW1haWwxLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjE5MDU2MiwiZXhwIjoxNzE2MTk3NzYyfQ.hEXM4rm4aaNlbJfGfTCrz4R_I3LRW_hY7QEuoC2PiCs"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/product/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						},
+						"description": "menghapus data produk dengan id yang dipilih"
+					},
+					"response": []
+				}
+			],
+			"description": "mengelola data produk"
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"etcdah\",\r\n    \"email\": \"tes1234@email1.com\",\r\n    \"role\": \"admin\",\r\n    \"password\": \"test\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "registrasi akun"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlczIzQGVtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjEwMjc0MCwiZXhwIjoxNzE2MTA5OTQwfQ.w2ZnUARTqmLHC7XnyFgJvdlLdfjQ2Ih_MwtRwwCD8jc\n",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"tes1234@email1.com\",\r\n    \"password\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register with oauth google",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/oauth/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"oauth",
+						"register"
+					]
+				},
+				"description": "registrasi akun baru menggunakan google oauth (install laravel socialite)"
+			},
+			"response": []
+		}
+	]
+}

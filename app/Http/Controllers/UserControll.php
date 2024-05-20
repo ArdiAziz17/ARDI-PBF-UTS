@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
-class UserController extends Controller
+class UserControll extends Controller
 {
     public function login(Request $request)
     {
@@ -33,7 +33,7 @@ class UserController extends Controller
                 "exp" => Carbon::now()->timestamp + 60 * 60 * 2,
             ];
 
-            $token = JWT::encode($payload, env("JWT_SECRET_KEY"), "HS256");
+            $token = JWT::encode($payload, (string)env("JWT_SECRET_KEY"), "HS256");
 
             return response()->json([
                 'msg' => 'Token has succesfully created',
